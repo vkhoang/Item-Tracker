@@ -1,13 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { LoginForm } from './loginform.jsx';
+import { Register } from './register.jsx';
+import '../styles.css'
+//import LoginForm from './loginform';
 
-class App extends Component {
-  render (){
-    return (
-      <div>
-        <h1>Hello World</h1>
-      </div>
-    )
+const App = () => {
+  const [currentForm, setCurretForm] = useState('login');
+
+  const toggleForm = (formName) => {
+    setCurretForm(formName);
   }
+
+  return (
+    <div>
+       {
+        currentForm === 'login' ? <LoginForm onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
+      }
+    </div>
+  );
 }
+
 
 export default App;

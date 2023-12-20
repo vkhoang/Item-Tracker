@@ -1,0 +1,117 @@
+body {
+  background-image: url('https://img.freepik.com/free-vector/blue-pink-halftone-background_53876-99004.jpg?w=2000&t=st=1703036749~exp=1703037349~hmac=42092ad8ebb6b18c8cf18dded3e41d919079ca838de8cc4987b552f8e960d9b8');
+  /* background-image: url('https://img.freepik.com/free-vector/gradient-grainy-texture_23-2148987745.jpg?w=1800&t=st=1703050634~exp=1703051234~hmac=066690281a676d74dbd575d283a40156726c5f1c281050b12dbe0db18b5a5802'); */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form-container {
+  /* background-image: url('https://img.freepik.com/premium-vector/unicorn-rainbow-background-vector-illustration_88211-5102.jpg?w=1800'); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(218, 238, 255);
+  width: 20em;
+  height: 25em;
+  position: relative;
+  border-radius: 1em;
+  box-shadow: 0 0.188em 1.550em rgb(29, 128, 185)
+}
+
+
+.alt-login {
+  width: 80%;
+  height: 3em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.alt-login div {
+  width: 95%;
+  height: 90%;
+  border-radius: 0.5em;
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-reapeat;
+  cursor: pointer;
+}
+
+.google {
+  background-image: url('https://i.giphy.com/xTiTnoUnHxVaaVNWhO.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+input {
+  margin: 0.5em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5em;
+  border: none;
+  text-align: center;
+  padding: 1em;
+  width: 90%;
+}
+
+input:focus {
+  outline-color: rgb(175, 193, 255);
+}
+
+.login-btn {
+  border: none;
+  width: 40%;
+  height: 2em;
+  background-color: rgb(178, 206, 241);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  transform: scale(1.08);
+}
+
+.text {
+  position: relative;
+  bottom: -1em;
+}
+
+/* .hide {
+  position: absolute;
+  transform: scale(0);
+}
+
+.login-popup {
+  position: absolute;
+  height: 30em;
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25em;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  bottom: 0;
+  transform: scale(1);
+  transition: 1.5s;
+} */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
