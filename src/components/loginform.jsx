@@ -10,6 +10,13 @@ export const LoginForm = (props) => {
     console.log(username);
   }
 
+  const sendMessage = () => {
+    console.log('hello backend')
+    fetch('/api', )
+     .then(() => response.json())
+     .catch(() => console.log('errorrrr'))
+  }
+
   return (
     <div className="auth-form-container">
       <h1>Login</h1>
@@ -25,6 +32,8 @@ export const LoginForm = (props) => {
       </div>
     </form>
       <button className="link-to-signup" onClick={() => props.onFormSwitch('Signup')}>Don't have an account? Register here.</button>
+      <button className="backend-btn" onClick={sendMessage}>Talk to Backend</button>
+    
     </div>
   )
 }

@@ -1,23 +1,31 @@
+const path = require('path');
 const express = require ('express');
 const app = express();
-const path = require('path');
-const Login = require('./models/loginModel')
+const mongoose = require('mongoose');
+const apiRouter = require('./routers/api');
 
 const PORT = 3000;
 
-mongoose.connect(
-  "mongodb+srv://vkhoang:OZ8QW8yjTonOk3yY@cluster1.ynrsp8x.mongodb.net/?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-mongoose.connection.once('open', () => {
-  console.log('Connected to Database');
-});
+const MONGO_URI = 'mongodb+srv://vkhoang:KsbWEPqxKmw9tLOu@cluster1.ynrsp8x.mongodb.net/?retryWrites=true&w=majority';
 
-app.use(express.urlencoded({ extended: true }));
+mongoose.connect(MONGO_URI, {
+    // options for the connect method to parse the URI
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // sets the name of the DB that our collections are part of
+    dbName: 'Item-Tracker',
+  })
+  .then(() => console.log('Connected to Mongo DB.'))
+  .catch((err) => console.log('i messed up somewhere'));
+
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const loginRouter = express.Router();
-app.use('/login', loginRouter);
+
+app.use(express.static(path.resolve(__dirname, '../src')));
+
+app.use('/api', apiRouter);
 
 // Unknown route handler
 app.use((req, res) => res.sendStatus(404));
@@ -34,4 +42,7 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
+
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+
+module.exports = app;

@@ -2,10 +2,10 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-
+  mode: process.env.NODE_ENV,
   entry: './src/index.js',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
 
@@ -33,6 +33,12 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       }
     ]
+  },
+  devServer: {
+    static: {
+      publicPath: '/dist',
+      directory: path.resolve(__dirname, '/dist'),
+    },
+    proxy: { '/': 'http://localhost:3000'}
   }
-
 }
