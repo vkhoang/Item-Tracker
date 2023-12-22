@@ -2,11 +2,11 @@ const express = require('express');
 const userController = require('../controllers/userController');
 const router = express();
 
-router.get('/', userController.getUser, (req, res) =>
+router.post('/login', userController.getUser, (req, res) =>
   res.status(200).json(res.locals.user)
 );
 
-router.post('/', userController.createUser, (req, res) =>
+router.post('/signup', userController.createUser, (req, res) =>
 res.status(200).json(res.locals.user)
 );
 

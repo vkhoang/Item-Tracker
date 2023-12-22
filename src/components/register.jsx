@@ -18,7 +18,7 @@ export const Register = (props) => {
       body: JSON.stringify({ username, password, fullName }), // Use state values directly
     };
 
-    fetch('/api', userInfo)
+    fetch('/api/signup', userInfo)
       .then((data) => data.json())
       .then((responseData) => {
         console.log(responseData);

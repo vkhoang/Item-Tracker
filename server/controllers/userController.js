@@ -3,8 +3,12 @@ const User = require('../models/loginModel');
 const testController = {};
 
 testController.getUser = (req, res, next) => {
-  User.find()
-    .then(data => res.locals.user = data)
+  console.log(req.body);
+  User.findOne({username: req.body.username, password: req.body.password})
+    .then(data => {
+      console.log("login data:", data);
+      res.locals.user = data
+    })
     .then(() => next())
     .catch(() => next({
         log: 'Express error handler caught in testController.getUser middleware.',
